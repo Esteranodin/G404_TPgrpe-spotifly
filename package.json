@@ -1,0 +1,15 @@
+{
+  "name": "g404_tpgrpe-spotifly",
+  "version": "1.0.0",
+  "description": "**Vous avez déjà entendu parler de Spotify ou Deezer ? Moi non !**",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss build -i ./assets/css/style.css -o ./assets/css/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.4.16"
+  }
+}
