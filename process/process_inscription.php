@@ -2,7 +2,7 @@
 
 // Error 1 : cassé le formulaire
 // Error 2 : quelquechose de vide
-// Error 3 : 
+// Error 3 : Problème avec les input donnés
 
 
 // évite qu'on change la requete en GET
@@ -23,39 +23,43 @@ if (
 if (
     empty($_POST['username']) ||
     empty($_POST['mail']) ||
-    empty($_POST['mdp'])
+    empty($_POST['password'])
 ) {
     header('Location: ../index.php?error=2');
     exit;
 }
 
+
+
 // Sanitization
 $username = htmlspecialchars(trim($_POST['username']));
-$mail = htmlspecialchars(trim($_POST['mail']));
-$mdp = htmlspecialchars(trim($_POST['mdp']));
+$mdp = $_POST['password'];
+$mail = $_POST['mail'];
 
 
 // Evite que l'username ou le password soient trop long
-if (strlen($username) > 25 || strlen($mdp > 50)) {
-    header('Location: ../index.php?error=2');
-    exit;
-}
-
-// Vérifie que c'est bien un mail
-if (!preg_match('[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]', $mail)) {
+if (strlen($username) > 25 || strlen($mdp) > 50) {
     header('Location: ../index.php?error=3');
     exit;
 }
 
 
-require_once("./utils/connect-db.php");
+// Sanitize Email
+if (!preg_match('/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]/', $mail)) {
+    var_dump($mail);
+    die();
+    header('Location: ../index.php?error=4');
+    exit;
+}
+
 // connecter à la base de données
+require_once("../utils/connect-db.php");
 
 
 
 try {
     
-    $sql = "INSERT INTO `user` (`username`, `mail`, `mdp`) VALUES (:username, :mail, :mdp)";
+    $sql = "INSERT INTO `user` (`username`, `email`, `password`) VALUES (:username, :mail, :mdp)";
     // Hashage du mot de passe pour la sécurité
     $hashedMdp = password_hash($mdp, PASSWORD_BCRYPT);
 
@@ -68,7 +72,7 @@ try {
     ]);
 
     
-    header('Location: ../homepage.php');
+    header('Location: ../index.php?success=1');
     exit;
 } catch (PDOException $error) {
     echo "Erreur lors de la requête : " . $error->getMessage();

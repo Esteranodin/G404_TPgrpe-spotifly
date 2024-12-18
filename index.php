@@ -39,6 +39,41 @@
 
         </div>
 
+        
+
+        <?php
+
+        
+
+        if (isset($_GET["error"])) {
+            ?>
+            <p class="text-center text-red-500"> 
+            <?php
+
+            switch ($_GET["error"]) {
+                case '1':
+                    ?> Erreur : le formulaire est tout pété <?php
+                    break;
+                case '2':
+                    ?> Erreur : vous n'avez pas tout rempli <?php
+                    break;
+                case '3':
+                    ?> Erreur : vous avez mal rempli le formulaire <?php
+                    break;
+                
+                default:
+                    break;
+            }
+
+
+        }
+
+        
+
+        ?>
+
+        </p>
+
 
     </main>
 
