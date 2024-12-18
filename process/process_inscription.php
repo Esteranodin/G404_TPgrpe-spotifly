@@ -7,7 +7,7 @@
 
 // évite qu'on change la requete en GET
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../index.php');
+    header('Location: ../public/inscription.php?error=invalidRequest');
     exit;
 }
 
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 if (
     !isset($_POST['username'], $_POST['mail'], $_POST['password'])
 ) {
-    header('Location: ../index.php?error=1');
+    header('Location: ../public/inscription.php?error=removedInput');
     exit;
 }
 
@@ -25,7 +25,7 @@ if (
     empty($_POST['mail']) ||
     empty($_POST['password'])
 ) {
-    header('Location: ../index.php?error=2');
+    header('Location: ../public/inscription.php?error=emptyInputs');
     exit;
 }
 
@@ -39,7 +39,7 @@ $mail = $_POST['mail'];
 
 // Evite que l'username ou le password soient trop long
 if (strlen($username) > 25 || strlen($mdp) > 50) {
-    header('Location: ../index.php?error=3');
+    header('Location: ../public/inscription.php?error=tooLong');
     exit;
 }
 
@@ -48,7 +48,7 @@ if (strlen($username) > 25 || strlen($mdp) > 50) {
 if (!preg_match('/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]/', $mail)) {
     var_dump($mail);
     die();
-    header('Location: ../index.php?error=4');
+    header('Location: ../public/inscription.php?error=incorrectMail');
     exit;
 }
 
@@ -58,6 +58,31 @@ require_once("../utils/connect-db.php");
 
 
 try {
+
+    // Vérification si l'email ou le username existe déjà
+    $checkSql = "SELECT username, email FROM `user` WHERE `username` LIKE :username OR `email` LIKE :mail";
+    $stmt = $pdo->prepare($checkSql);
+    $stmt->execute([
+        ':username' => $username,
+        ':mail' => $mail
+    ]);
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    var_dump($user);
+
+    if ($user) {
+        // Si un utilisateur est trouvé, redirige ou affiche une erreur
+        if ($user['username'] === $username) {
+            header('Location: ../public/inscription.php?error=takenUsername');
+            exit();
+        } elseif ($user['email'] === $mail) {
+            header('Location: ../public/inscription.php?error=takenMail');
+            exit();
+        }
+
+    }
+
+
     
     $sql = "INSERT INTO `user` (`username`, `email`, `password`) VALUES (:username, :mail, :mdp)";
     // Hashage du mot de passe pour la sécurité
