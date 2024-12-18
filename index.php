@@ -13,63 +13,40 @@
 
     </header>
 
-    <h1>
-        Faites décoller vos playlists avec Spotifly
-    </h1>
-    <h2>Connexion</h2>
+    <main>
+        <div class="m-auto w-2/3 text-center items-center p-4">
+            <img src="" alt="logo">
+            <h1 class="text-3xl font-bold m-auto">
+                Faites décoller vos playlists avec Spotifly
+            </h1>
+        </div>
 
-    <form action="./process/process_connexion.php" method="post">
+        <div class="bg-slate-400 shadow-md rounded-sm flex flex-col gap-5 w-fit h-fit p-12 m-auto">
+            <p class=""> Inscrivez vous dès maintenant </p>
 
-       
-
-
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" />
-            </div>
-
-            <div>
-                <label for="pass">Password (8 characters minimum):</label>
-                <input type="password" id="pass" name="password" minlength="8" required />
-            </div>
+            <a href="./public/inscription.php">
+                <div class="bg-black w-64 p-4 rounded-sm">
+                    <p class="text-white font-extrabold text-center">Inscription</p>
+                </div>
+            </a>
 
 
-            <input type="submit" value="Se connecter" />
+            <p class=""> Déja un compte ? </p>
+
+            <a href="./public/connexion.php" class="bg-black w-64 p-4 rounded-sm">
+                <p class="text-white font-extrabold text-center">Connexion</p>
+            </a>
+
+        </div>
 
 
-        </form>
+    </main>
 
-
-        <h2>Inscription</h2>
-        <form action="./process/process_inscription.php" method="post">
-
-
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" />
-            </div>
-
-            <div>
-                <label for="mail">Adresse mail</label>
-                <input type="email" name="mail" id="mail">
-            </div>
-
-            <div>
-                <label for="mdp">Password (8 characters minimum):</label>
-                <input type="password" id="mdp" name="mdp" minlength="8" required />
-            </div>
+    <footer>
 
 
 
-            <input type="submit" value="S'inscrire">
-
-
-        </form>
-
-        <footer>
-            
-
-        </footer>
+    </footer>
 
 </body>
 
