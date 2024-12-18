@@ -15,10 +15,10 @@ require_once("./components/htmlstart.php");
     </header>
     <main>
 
-        <h2>Connexion</h2>
+    <h2 class="text-2xl font-bold text-center my-16">inscription</h2>
 
         <div class="bg-slate-300 p-16 rounded-sm ">
-            <form action="./process/process_inscription.php" method="post" class="flex flex-col gap-4">
+            <form action="../process/process_inscription.php" method="post" class="flex flex-col gap-4">
 
                 <div>
                     <label for="username">Nom d'utilisateur :</label>

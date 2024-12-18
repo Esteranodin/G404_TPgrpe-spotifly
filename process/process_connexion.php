@@ -1,12 +1,12 @@
 <?php
 
-
+// évite qu'on change la requete en GET
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ../index.php');
     exit;
 }
 
-
+// Evite la suppression d'un input
 if (
     !isset($_POST['username'], $_POST['password'])
 ) {
@@ -14,7 +14,7 @@ if (
     exit;
 }
 
-
+// Evite de donner les trucs vides
 if (
     empty($_POST['username']) ||
     empty($_POST['mdp'])
@@ -23,20 +23,23 @@ if (
     exit;
 }
 
+// Sanitization
 
 $username = htmlspecialchars(trim($_POST['username']));
 $mdp = htmlspecialchars(trim($_POST['mdp']));
 
 
-if (strlen($username) > 50) {
+// Evite que l'username soit trop long
+
+if (strlen($username) > 25) {
     header('Location: ../index.php?error=2');
     exit;
 }
 
 
 
-require_once 
 // connecter à la base de données
+require_once("./utils/connect-db.php");
 
 
 $sql = "INSERT INTO `user` (`username`, `mdp`) VALUES (:username, :mdp)";
