@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ../index.php');
@@ -39,7 +39,8 @@ require_once
 // connecter à la base de données
 
 
-$sql = "INSERT INTO `user` (`username`, `mdp`) VALUES (:username, :mdp)";
+$sql = ("SELECT * FROM user WHERE mail = :mail AND mdp = :mdp");
+
 
 try {
     // Hashage du mot de passe pour la sécurité
