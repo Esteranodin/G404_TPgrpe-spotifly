@@ -1,4 +1,3 @@
-./assets/src/audio/Amon_Amarth-Guardians_Of_Asgaard-Twlight_Of_The_Thunder_God.mp3
 
 
 perso co + role admin  pour accéder forms 1 pour album / artsite...
@@ -6,3 +5,5 @@ admin.php =notre interface a nous sans front accessible via url uniquement
 
 qd upload image  via form file --> super global file
 creation image avec id + recup' cette id dans crea albulm par exemple
+
+
