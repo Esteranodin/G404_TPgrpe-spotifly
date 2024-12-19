@@ -40,7 +40,7 @@
 
                     <p class="text-white font-semibold"> Déja un compte ? </p>
 
-                    <a href="./public/connexion.php" class="bg-primary-grey-dark w-64 p-4 rounded-full text-white font-extrabold text-center">Connexion</a>
+                    <a href="./public/connexion.php" class="bg-primary-grey-dark w-64 p-4 rounded-xl text-white font-extrabold text-center">Connexion</a>
             </section>
         </div>
     </main>
