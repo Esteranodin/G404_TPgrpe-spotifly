@@ -1,8 +1,34 @@
+<script defer src="../assets/js/lecteur_2.js"></script>
+
 <?php
 require_once("./components/htmlstart.php");
-?>
+require_once("../utils/connect-db.php");
 
-<script src="../assets/js/lecteur_2.js"></script>
+session_start();
+
+$index = 6 ;
+
+$sql = "SELECT id , music_path, title FROM music";
+
+try {
+    $stmt = $pdo->query($sql);
+    $audios = $stmt->fetchAll(
+        PDO::FETCH_ASSOC
+    ); 
+
+} catch (PDOException $error) {
+    echo "Erreur lors de la requete : " . $error->getMessage();
+}
+
+// Tableau multidimensionnel $audiofinal
+$audioFinal = [];
+foreach ($audios as $audio) {
+    $audioFinal[$audio["id"]] = [
+    "music_path" => $audio["music_path"],
+     "title" => $audio["title"]
+    ];
+};
+?>
 
 <body class="mx-4">
     <h3>Ecoutés récemment</h3>
@@ -92,42 +118,6 @@ require_once("./components/htmlstart.php");
     </section>
   
 
-
-  
-        <hr class="w-96 h-8 bg-green-500 opacity-50">
-
-        <section class="flex flex-col items-center gap-5">
-            <!-- <div class="container">
-            <div class="album-cover">
-                <img id="album-cover" src="../assets/src/images/album/" alt="Pochette de l'album">
-            </div> -->
-
-            <div class="song-info pt-4">
-                <p id="song-title" class="song-title">Titre de la chanson</p>
-                <p id="song-artist" class="song-artist">Artiste</p>
-            </div>
-
-            <div class="controls">
-                <input id="progress" type="range" min="0" max="100" value="0" class="progress-bar" />
-                <div class="time-info">
-                    <span id="current-time">0:00</span>
-                    <span id="duration">3:00</span>
-                </div>
-
-                <div class="buttons">
-                    <button id="prev" class="prev-button">&lt;&lt;</button>
-                    <button id="playPause" class="play-pause-button">▶</button>
-                    <button id="next" class="next-button">&gt;&gt;</button>
-                </div>
-            </div>
-            </div>
-
-            <!-- Le fichier audio sera ajouté et contrôlé par JavaScript -->
-            <!-- <audio id="audio" controls> -->
-            <!-- Le fichier audio sera ajouté dynamiquement par JavaScript -->
-            <!-- </audio> -->
-        </section>
-
         <hr class="w-full border-4 border-primary-accent opacity-50 my-8">
 
 <section class="flex flex-col gap-5">
@@ -141,16 +131,8 @@ require_once("./components/htmlstart.php");
         <p id="song-artist" class="song-artist">Artiste</p>
     </div>
 
-    <!-- <div class="flex flex-row items-center gap-4">
-        <span id="current-time">0:00</span>
-        <input id="progress" type="range" min="0" max="100" value="0" class="progress-bar" />
-        <div class="time-info">
-            <span id="duration">3:00</span>
-        </div>
-    </div> -->
-
-
-    <!-- <div class="flex flex-wrap items-center gap-4"> -->
+  
+    <div class="flex flex-wrap items-center gap-4">
         <audio id="audio" controls >
             <source src=".<?php echo $audioFinal[$index]["music_path"]?>" type="audio/mp3">
         </audio>
@@ -159,13 +141,10 @@ require_once("./components/htmlstart.php");
             <button id="next" class="next-button">&gt;&gt;</button> -->
 
         <hr class="w-full border-4 border-primary-accent opacity-50 my-8">
-    <!-- </div> -->
+        
+    </div>
 
 
-    <!-- Le fichier audio sera ajouté et contrôlé par JavaScript -->
-    <!-- <audio id="audio" controls> -->
-    <!-- Le fichier audio sera ajouté dynamiquement par JavaScript -->
-    <!-- </audio> -->
 </section>
 
 </div>
