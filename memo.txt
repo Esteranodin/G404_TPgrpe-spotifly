@@ -1,9 +1,19 @@
 
+Pense bête : 
 
+demain id --> pour récup photo 
+recup id au click
+
+com ' revoir requete sql pour recup id album + affichage
+
+Fixer la barre de recherches + envoi vers la bonne page
+
+finir un peu de css pur harmoniser
+
+
+------ Formulaire ADMIN =
 perso co + role admin  pour accéder forms 1 pour album / artsite...
 admin.php =notre interface a nous sans front accessible via url uniquement
 
 qd upload image  via form file --> super global file
 creation image avec id + recup' cette id dans crea albulm par exemple
-
-
