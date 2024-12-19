@@ -1,3 +1,8 @@
+
+<?php 
+session_start();
+?>
+
 <header>
     <section class="relative h-[100px] bg-primary-grey-dark flex flex-row font-title">
 
@@ -16,9 +21,13 @@
 
             <div class="flex gap-4">
                 <!-- User profile -->
+                <a href="./profil.php?<?= $_SESSION["user"]["id"] ?>">
                 <i class="fas fa-user text-neutral-white text-3xl"></i>
+                </a>
                 <!-- Burger Menu -->
+                <a href="">
                 <i class="fas fa-bars text-neutral-white text-3xl"></i>
+                </a>
             </div>
         </nav>
 
