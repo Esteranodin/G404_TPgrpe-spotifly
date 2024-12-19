@@ -6,7 +6,11 @@ recup id au click
 
 com ' revoir requete sql pour recup id album + affichage
 
-Fixer la barre de recherches + envoi vers la bonne page
+
+Barre de recherche : 
+- Envoi vers la bonne page
+- Possibilité de lancer la musique directement dans les résultats de recherche
+- Enlever les résultats de recherche quand on clique hors de la barre de recherche
 
 finir un peu de css pur harmoniser
 
