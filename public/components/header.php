@@ -1,11 +1,14 @@
 <?php 
 session_start();
+
+// Pour chemin absolu
+$basePath = rtrim(dirname($_SERVER['PHP_SELF']), '/');
 ?>
 
 <header>
     <section class="relative h-[100px] bg-primary-grey-dark flex flex-row font-title">
         <!-- Logo -->
-        <a href="./homepage.php" class="w-[100px] flex-none">
+        <a href="<?=$basePath?>/homepage.php" class="w-[100px] flex-none">
             <img src="../assets/src/images/logo/Spotifly_Logo-sans_fond.png" alt="Logo Spotifly" class="h-full self-center">
         </a>
 

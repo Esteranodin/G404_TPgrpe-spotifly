@@ -75,15 +75,15 @@ if (count($liste)==0) {
   exit;
 } 
 
-
+require_once("../utils/sanitize.php");
 
 $htmlString = "";
 foreach ($liste as $element) {
     // Initialiser les variables locales
-    $imagePath = isset($element['image_path']) ? "." . htmlspecialchars($element['image_path']) : ''; // Si null, utiliser une chaîne vide
-    $artiste = isset($element['artiste_name']) ? str_replace(['-', '_'], ' ', htmlspecialchars($element['artiste_name'])) : ''; // Si null, utiliser une chaîne vide
-    $titre = isset($element['title']) ? str_replace(['-', '_'], ' ', htmlspecialchars($element['title'])) : ''; // Si null, utiliser une chaîne vide
-    $albumTitre = isset($element['album_title']) ? str_replace(['-', '_'], ' ', htmlspecialchars($element['album_title'])) : ''; // Si null, utiliser une chaîne vide
+    $imagePath = isset($element['image_path']) ? "." . htmlspecialchars($element['image_path']) : ''; 
+    $artiste = sanitizeAndFormatString($element['artiste_name']);
+    $titre = sanitizeAndFormatString($element['title']);
+    $albumTitre = sanitizeAndFormatString($element['album_title']);
 
     // Concaténation du HTML
     if ($element['result_type'] === 'music') {
