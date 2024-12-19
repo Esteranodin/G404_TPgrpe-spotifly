@@ -4,7 +4,7 @@
 require_once("./components/htmlstart.php");
 require_once("../utils/connect-db.php");
 
-session_start();
+// Test playbar
 
 $index = 6 ;
 
@@ -28,9 +28,12 @@ foreach ($audios as $audio) {
      "title" => $audio["title"]
     ];
 };
+
+
 ?>
 
 <body class="mx-4">
+    <?php require_once("./components/header.php") ?>
     <h3>Ecoutés récemment</h3>
     <section class="flex gap-2">
 

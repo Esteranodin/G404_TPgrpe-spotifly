@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.php", "./public/*"
+    "./index.php", "./public/**/", "./public/components/**", "./process/*.php"
   ],
   theme: {
     extend: {
@@ -26,6 +26,7 @@ module.exports = {
       fontFamily: {
         'title': ['Spline Sans'],
         'body': ['sans-serif'],
+        'Poppins': ["sans-serif"]
       },
     },
 
