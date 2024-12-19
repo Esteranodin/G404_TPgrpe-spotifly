@@ -25,7 +25,7 @@ $audioFinal = [];
 foreach ($audios as $audio) {
     $audioFinal[$audio["id"]] = [
     "music_path" => $audio["music_path"],
-     "title" => $audio["title"]a
+     "title" => $audio["title"]
     ];
 };
 
