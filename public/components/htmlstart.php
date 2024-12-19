@@ -7,4 +7,7 @@
     <link rel="stylesheet" href="../assets/css/output.css">
     <!-- Intégration FontAwesome -->
     <script src="https://kit.fontawesome.com/a8e33fe483.js" crossorigin="anonymous"></script>
+
+    <!-- Searchbar -->
+     <script src="../assets/JS/searchbar.js"></script>
 </head>
