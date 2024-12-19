@@ -765,6 +765,10 @@ video {
   border-radius: 0.125rem;
 }
 
+.rounded{
+  border-radius: 0.25rem;
+}
+
 .border-neutral-white{
   --tw-border-opacity: 1;
   border-color: hsl(309 33 96 / var(--tw-border-opacity, 1));
