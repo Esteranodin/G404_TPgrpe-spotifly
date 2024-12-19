@@ -3,34 +3,44 @@ require_once("./components/htmlstart.php")
 
 ?>
 
+
+
 <body>
-    <section>
-        <h3>Ecoutés récemment</h3>
-        <div id="album-container">
-            <figure id="album-item">
-                <img id="album-cover" src="images/placeholder.jpg" alt="Pochette de l'album" />
-                <figcaption id="album-title">Aucune chanson écoutée</figcaption>
-            </figure>
-        </div>
-        <div id="album-container">
-            <figure id="album-item">
-                <img id="album-cover" src="images/placeholder.jpg" alt="Pochette de l'album" />
-                <figcaption id="album-title">Aucune chanson écoutée</figcaption>
-            </figure>
-        </div>
+    <?php require_once("./components/header.php") ?>
 
-        <div id="album-container">
-            <figure id="album-item">
-                <img id="album-cover" src="images/placeholder.jpg" alt="Pochette de l'album" />
-                <figcaption id="album-title">Aucune chanson écoutée</figcaption>
-            </figure>
+
+
+
+    <section>
+        <h3 class="text-2xl">Ecoutés récemment</h3>
+        <div class="flex gap-8">
+            <div id="album-container">
+                <figure id="album-item">
+                    <img id="album-cover" src="images/placeholder.jpg" alt="Pochette de l'album" />
+                    <figcaption id="album-title">Aucune chanson écoutée</figcaption>
+                </figure>
+            </div>
+            <div id="album-container">
+                <figure id="album-item">
+                    <img id="album-cover" src="images/placeholder.jpg" alt="Pochette de l'album" />
+                    <figcaption id="album-title">Aucune chanson écoutée</figcaption>
+                </figure>
+            </div>
+
+            <div id="album-container">
+                <figure id="album-item">
+                    <img id="album-cover" src="images/placeholder.jpg" alt="Pochette de l'album" />
+                    <figcaption id="album-title">Aucune chanson écoutée</figcaption>
+                </figure>
+            </div>
         </div>
 
 
     </section>
 
     <section>
-        <h3>Vos playlist</h3>
+        <h3 class="text-2xl">Vos playlist</h3>
+    <div class="flex gap-8">
         <div id="album-container">
             <figure id="album-item">
                 <img id="album-cover" src="../assets/src/images/album/" alt="Pochette de l'album" />
@@ -50,12 +60,15 @@ require_once("./components/htmlstart.php")
                 <figcaption id="album-title">Aucune chanson écoutée</figcaption>
             </figure>
         </div>
+    </div>
 
     </section>
 
+
+    <!-- LECTEUR AUDIO -->
     <section>
         <!-- Conteneur principal du lecteur -->
-        <div class="container">
+        <div class="container flex gap-4 mt-8">
             <!-- Pochette de l'album -->
             <div class="album-cover">
                 <img id="album-cover" src="../assets/src/images/album/" alt="Pochette de l'album">

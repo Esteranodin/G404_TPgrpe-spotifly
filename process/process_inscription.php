@@ -68,7 +68,6 @@ try {
     ]);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    var_dump($user);
 
     if ($user) {
         // Si un utilisateur est trouvé, redirige ou affiche une erreur
