@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // On récupère le data id
             const albumId = album.getAttribute('data-id');
             // On lance la fonction loadpage avec l'url correspondant a la playlist cliquée
-            loadPage(`./components/playlist.php?id=${albumId}`);
+            loadPage(`./components/album.php?id=${albumId}`);
         }
     });
 });
