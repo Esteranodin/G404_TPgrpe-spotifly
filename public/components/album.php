@@ -60,6 +60,8 @@ $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <section class="songs-list space-y-4">
         <h2 class="text-xl font-semibold text-white">Liste des musiques :</h2>
         <ul class="space-y-2">
+
+            <!-- Chaque chanson de l'album -->
             <?php foreach ($songs as $song) { 
                 // Sanitize les données de chaque chanson
                 $songTitle = sanitizeAndFormatString($song['title']);
@@ -77,6 +79,8 @@ $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php } ?>
         </ul>
     </section>
+    
+    <!-- Formulaire de commentaires -->
     <form action="javascript:;" onsubmit="envoyerCommentaire(this)" method="get" class="flex items-center justify-between px-3">
                     <input type="hidden" id="id_album" name="id_album" value="<?= $_GET["id"] ?>">
                     <input type="text" id="content" name="content" placeholder="Ajoutez un commentaire" class="bg-black text-white">
