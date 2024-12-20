@@ -43,7 +43,7 @@
 
 
     <!-- Section lecteur audio -->
-    <section class="flex flex-col gap-5">
+    <section class="flex gap-5 absolute bottom-0">
 
     <div class="album-cover">
         <img id="album-cover" src="../assets/src/images/album/couverture-Clara_Yse-Oceano_Nox.jpg" alt="Pochette de l'album" class="w-16">

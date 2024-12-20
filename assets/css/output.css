@@ -564,6 +564,10 @@ video {
   position: relative;
 }
 
+.sticky{
+  position: sticky;
+}
+
 .bottom-3\.5{
   bottom: 0.875rem;
 }
@@ -578,6 +582,10 @@ video {
 
 .top-full{
   top: 100%;
+}
+
+.bottom-0{
+  bottom: 0px;
 }
 
 .m-auto{
