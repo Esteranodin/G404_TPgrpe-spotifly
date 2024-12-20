@@ -36,6 +36,17 @@ $sqlsongs = "SELECT * FROM music WHERE id_album = :id";
 $stmt = $pdo->prepare($sqlsongs);
 $stmt->execute(['id' => $albumId]);
 $songs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Récupérer tous les commentaires
+
+$sql = "SELECT comment.id, comment.content, user.username FROM `comment` 
+JOIN `user` ON user.id = comment.id_user
+WHERE id_album = :albumId";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(["albumId" => $albumId]);
+$comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 
 
@@ -71,6 +82,17 @@ $songs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <input type="text" id="content" name="content" placeholder="Ajoutez un commentaire" class="bg-black text-white">
                     <button type="submit" class="mt-2 bg-blue-500 text-white py-1 px-2">Envoyer</button>
                 </form>
+                <section>
+                    <?php
+foreach($comments as $comment){
+    echo "<article>" . $comment["username"] . "<br>" . $comment["content"] ."</article>";
+   
+    
+};
+
+
+?>
+                </section>
     <footer class="mt-6">
         <button onclick="goBack()" class="bg-primary-blue text-white py-2 px-6 rounded-full hover:bg-primary-blue-dark transition duration-200">
             Retour
