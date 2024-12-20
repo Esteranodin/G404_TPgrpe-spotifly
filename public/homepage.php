@@ -40,6 +40,34 @@
         <section class="content">
             <?php require_once("./components/homepage_main.php") ?>
         </section>
+
+
+    <!-- Section lecteur audio -->
+    <section class="flex flex-col gap-5">
+
+    <div class="album-cover">
+        <img id="album-cover" src="../assets/src/images/album/couverture-Clara_Yse-Oceano_Nox.jpg" alt="Pochette de l'album" class="w-16">
+    </div>
+
+    <div class="song-info pt-4">
+        <p id="song-title" class="song-title"><?= $audioFinal[$index]['title'] ?></p>
+        <p id="song-artist" class="song-artist">Artiste</p>
+    </div>
+
+  
+    <div class="flex flex-wrap items-center gap-4">
+        <audio id="audio" controls >
+            <source src=".<?php echo $audioFinal[$index]["music_path"]?>" type="audio/mp3">
+        </audio>
+            <!-- <button id="previous" class="prev-button" >&lt;&lt;</button>
+            <button id="playPause" class="play-pause-button">▶</button>
+            <button id="next" class="next-button">&gt;&gt;</button> -->
+
+        <hr class="w-full border-4 border-primary-accent opacity-50 my-8">
+        
+    </div>
+
+
     </main>
 
     <footer>
