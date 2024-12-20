@@ -38,6 +38,8 @@ $stmt->execute(['id' => $albumId]);
 $songs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+
+
 <div class="playlist-container bg-primary-dark p-6 rounded-lg shadow-lg">
     <!-- TODO FIX IMAGE -->
     <img src="<?="." . $image["img_path"] ?>" alt="<?= $image["img_alt"] ?>">
@@ -64,7 +66,11 @@ $songs = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php } ?>
         </ul>
     </section>
-
+    <form action="javascript:;" onsubmit="envoyerCommentaire(this)" method="get" class="flex items-center justify-between px-3">
+                    <input type="hidden" id="id_album" name="id_album" value="<?= $_GET["id"] ?>">
+                    <input type="text" id="content" name="content" placeholder="Ajoutez un commentaire" class="bg-black text-white">
+                    <button type="submit" class="mt-2 bg-blue-500 text-white py-1 px-2">Envoyer</button>
+                </form>
     <footer class="mt-6">
         <button onclick="goBack()" class="bg-primary-blue text-white py-2 px-6 rounded-full hover:bg-primary-blue-dark transition duration-200">
             Retour

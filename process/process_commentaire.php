@@ -1,6 +1,7 @@
 <?php
 require_once("../utils/connect-db.php");
 // Je verifie si l'user est coonecté
+
 session_start();
 if (!isset($_SESSION['user']['id'])) {
     echo "Erreur de session : Vous devez être connecté pour ajouter un commentaire.";
@@ -13,8 +14,8 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Récupération des données envoyées depuis le formulaire
-    $content = $_POST['content']; // Contenu du commentaire
-    $id_album = $_POST['id_album']; // ID de l'album auquel le commentaire est lié
+    $content = $_GET['content']; // Contenu du commentaire
+    $id_album = $_GET['id_album']; // ID de l'album auquel le commentaire est lié
 
     // Préparation de la requête d'insertion
     $query = "INSERT INTO comment (content, id_user, id_album) VALUES (:content, :id_user, :id_album)";

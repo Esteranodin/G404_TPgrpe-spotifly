@@ -11,4 +11,5 @@
     <!-- Searchbar -->
      <script src="../assets/JS/searchbar.js"></script>
      <script src="../assets/JS/homepage.js"></script>
+     <script src="../assets/JS/commentaire.js"></script>
 </head>

@@ -49,3 +49,4 @@ function goBack() {
     // Fonction pour revenir à la page précédente
     window.location.href = '../homepage.php';
 }
+
