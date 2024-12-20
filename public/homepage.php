@@ -1,4 +1,4 @@
-<script defer src="../assets/js/lecteur_2.js"></script>
+<script defer src="../assets/js/lecteur.js"></script>
 
 <?php
     require_once("./components/htmlstart.php");
