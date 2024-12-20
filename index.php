@@ -10,17 +10,17 @@
 
 <body>
     <header>
-        <section class=" h-[100px] bg-primary-grey-dark flex font-title overflow-hidden">
+        <section class=" h-[100px] bg-primary-grey-dark flex font-title overflow-hidden sm:self-end  ">
             <img src="./assets/src/images/logo/Spotifly_Logo-sans_fond.png" alt="Logo Spotifly" class=" h-[120%] self-center">
-            <nav class="flex gap-4 p-4 self-end pl-24">
-                <a href="./public/connexion.php" class="text-neutral-white self-center">Connexion</a>
-                <a href="./public/inscription.php" class="text-primary-grey-dark bg-neutral-white h-fit rounded-2xl p-2 px-6">S'inscrire</a>
+            <nav class="flex gap-4 p-4 self-end pl-10  sm:pl-72 w-full  items-center">
+                <a href="./public/connexion.php" class="text-neutral-white  ml-auto">Connexion</a>
+                <a href="./public/inscription.php" class="text-primary-grey-dark bg-neutral-white h-fit rounded-2xl p-2 px-6 ml-auto">S'inscrire</a>
             </nav>
         </section>
     </header>
 
     <main>
-        <div class=" flex font-title ">
+        <!-- <div class=" flex font-title "> -->
 
             <section class="overflow-hidden bg-neutral-black flex flex-col">
 
@@ -33,16 +33,28 @@
                     </h1>
                 </div>
 
-                <div class="bg-primary-accent shadow-md flex flex-col font-semibold text-white pl-24 gap-5 w-[300%] h-fit p-12 m-auto rounded-full justify-center">
-                    <p class=""> Inscrivez vous dès maintenant </p>
+                 <div class="bg-primary-accent shadow-md flex flex-col font-semibold text-white pl-24 gap-5 w-[300%] h-fit p-12 m-auto rounded-full justify-center sm:justify-center ">
+                   <div class="flex flex-col  sm:justify-center sm:ml-24 ">
+                   <p class=""> Inscrivez vous dès maintenant </p>
 
-                    <a href="./public/inscription.php" class="bg-primary-grey-dark w-64 p-4 rounded-xl text-white font-extrabold text-center">Inscription</a>
+<a href="./public/inscription.php" class="bg-primary-grey-dark w-64 p-4 rounded-xl text-white font-extrabold text-center">Inscription</a>
 
-                    <p class="text-white font-semibold"> Déja un compte ? </p>
+<p class="text-white font-semibold"> Déja un compte ? </p>
 
-                    <a href="./public/connexion.php" class="bg-primary-grey-dark w-64 p-4 rounded-xl text-white font-extrabold text-center">Connexion</a>
+<a href="./public/connexion.php" class="bg-primary-grey-dark w-64 p-4 rounded-xl text-white font-extrabold text-center">Connexion</a>
+                   </div>
+              
+
+
+
+
+
+                    </div> 
+                     
+
+
             </section>
-        </div>
+      
     </main>
 
     <footer>
