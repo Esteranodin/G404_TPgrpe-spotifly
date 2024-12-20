@@ -50,3 +50,24 @@ function goBack() {
     window.location.href = '../homepage.php';
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    const albumItems = document.querySelectorAll(".album-item");
+
+    albumItems.forEach(item => {
+        item.addEventListener("click", function() {
+            const albumId = this.getAttribute("data-id");
+            loadAlbum(albumId);
+        });
+    });
+});
+
+function loadAlbum(albumId) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.querySelector("#album-content").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../public/components/album.php?id=" + albumId, true);
+    xmlhttp.send();
+}

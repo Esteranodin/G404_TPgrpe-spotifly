@@ -1,6 +1,5 @@
 <?php 
 
-session_start();
 
 // Pour chemin absolu
 $basePath = rtrim(dirname($_SERVER['PHP_SELF']), '/');
