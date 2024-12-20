@@ -1,7 +1,11 @@
 <?php
 require_once("../utils/connect-db.php");
 
-$sql = "SELECT album.id, title, images.img_path, artiste.name FROM album JOIN artiste ON album.id_artiste = artiste.id JOIN images ON album.id_image = images.id ORDER BY `release_date` DESC";
+$sql = "SELECT album.id, title, images.img_path, artiste.name 
+FROM album 
+JOIN artiste ON album.id_artiste = artiste.id 
+JOIN images ON album.id_image = images.id 
+ORDER BY `release_date` DESC";
 
 $albums = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
@@ -13,7 +17,7 @@ $albums = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
-<h3 class="text-2xl text-neutral-white font-bold py-4">Dernières nouveautés</h3>
+<h3 class="text-2xl text-neutral-white font-bold p-8">Pour vous</h3>
 <section id="derniers_albums" class="flex overflow-scroll gap-1 w-full h-fit">
 
 
@@ -33,8 +37,9 @@ foreach ($albums as $album) {
         <img src="<?= $path ?>" alt="Image de l'album <?= $title ?>" class="aspect-square object-cover rounded-t-lg w-full" />
     </div>
     <div class="p-4 text-center">
+        <!-- il faudrai modif la BDD pour enlever nom artiste du titre album -->
         <h3 class="text-white text-lg font-bold mb-1"><?= $title ?></h3>
-        <p class="text-gray-300 text-sm"><?= $name ?></p>
+        <!-- <p class="text-gray-300 text-sm"><?= $name ?></p> -->
     </div>
 </div>
 
